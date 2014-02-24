@@ -119,7 +119,7 @@ echo "Squid3   : port 8080"  | tee -a log-install.txt
 echo "Httpd    : port 80"  | tee -a log-install.txt
 echo "Badvpn   : port 7300"  | tee -a log-install.txt
 echo "Webmin   : http://$MYIP:10000/"  | tee -a log-install.txt
-echo "Timezone : Asia/Jakarta"  | tee -a log-install.txt
+echo "Timezone : Indonesia/Madura"  | tee -a log-install.txt
 echo "============================================"  | tee -a log-install.txt
 echo "TERIMAKASIH TELAH MENGUNAKAN JASA KAMI :D"  | tee -a log-install.txt
 echo "============================================"  | tee -a log-install.txt
