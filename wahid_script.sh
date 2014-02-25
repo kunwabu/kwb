@@ -40,7 +40,7 @@ echo "/bin/false" >> /etc/shells
 # install badvpn
 wget -O /usr/bin/badvpn-udpgw "https://raw.github.com/kunwabu/badvpn/master/badvpn-udpgw"
 if [ "$OS" == "x86_64" ]; then
-  wget -O /usr/bin/badvpn-udpgw "https://raw.github.com/kunwabu/badvpn/master/badvpn-udpgw64"
+  wget -O /usr/bin/badvpn-udpgw64 "https://raw.github.com/kunwabu/badvpn/master/badvpn-udpgw64"
 fi
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.local
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.d/rc.local
