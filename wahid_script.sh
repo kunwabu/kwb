@@ -34,7 +34,8 @@ sed -i 's/#Port 22/Port  22/g' /etc/ssh/sshd_config
 wget http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
 rpm -Uvh epel-release*rpm
 yum -y install dropbear
-sed -i '/PID_FILE=/var/run/dropbear.pid/a OPTIONS=“-p 443”' /etc/init.d/dropbear
+echo "OPTIONS=\"-p 443\"" > /etc/sysconfig/dropbear
+echo "/bin/false" >> /etc/shells
 
 # install badvpn
 wget -O /usr/bin/badvpn-udpgw "https://raw.github.com/arieonline/autoscript/master/conf/badvpn-udpgw"
