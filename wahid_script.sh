@@ -90,8 +90,7 @@ echo "Sukses Terinstall"  | tee -a log-install.txt
 echo "------------------------------------------"  | tee -a log-install.txt
 echo "OpenSSH  : port 22, 143"  | tee -a log-install.txt
 echo "Dropbear : port 443"  | tee -a log-install.txt
-echo "Squid3   : port 8080"  | tee -a log-install.txt
-echo "Httpd    : port 80"  | tee -a log-install.txt
+echo "Squid3   : port 80, 8080"  | tee -a log-install.txt
 echo "Badvpn   : port 7300"  | tee -a log-install.txt
 echo "Webmin   : http://$MYIP:10000/"  | tee -a log-install.txt
 echo "Timezone : Indonesia/Madura"  | tee -a log-install.txt
