@@ -53,44 +53,18 @@ rpm -i webmin-1.670-1.noarch.rpm;
 rm webmin-1.670-1.noarch.rpm
 service webmin restart
 
+# install screenfetch
+wget https://github.com/kunwabu/config/raw/master/screenfetch-dev
+mv screenfetch-dev /usr/bin/screenfetch
+chmod +x /usr/bin/screenfetch
+echo "clear" >> .bash_profile
+echo "screenfetch" >> .bash_profile
+
 # install squid
 yum -y install squid
-sed -i '/http_access allow localhost/a http_access allow all' /etc/squid/squid.conf
-sed -i 's/http_access deny all/ http_access allow all/g' /etc/squid/squid.conf
-sed -i 's/http_port 3128/ http_port 8080/g' /etc/squid/squid.conf
-sed -i '/4320/a via off' /etc/squid/squid.conf
-sed -i '/via off/a forwarded_for off' /etc/squid/squid.conf
-sed -i '/forwarded_for off/a request_header_access Allow allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Allow allow all/a request_header_access Authorization allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Authorization allow all/a request_header_access WWW-Authenticate allow all' /etc/squid/squid.conf
-sed -i '/request_header_access WWW-Authenticate allow all/a request_header_access Proxy-Authorization allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Proxy-Authorization allow all/a request_header_access Proxy-Authenticate allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Proxy-Authenticate allow all/a request_header_access Cache-Control allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Cache-Control allow all/a request_header_access Content-Encoding allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Content-Encoding allow all/a request_header_access Content-Encoding allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Content-Encoding allow all/a request_header_access Content-Type allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Content-Type allow all/a request_header_access Date allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Date allow all/a request_header_access Expires allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Expires allow all/a request_header_access Host allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Host allow all/a request_header_access If-Modified-Since allow all' /etc/squid/squid.conf
-sed -i '/request_header_access If-Modified-Since allow all/a request_header_access Last-Modified allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Last-Modified allow all' /a request_header_access Location allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Location allow all/a request_header_access Pragma allow all' /etc/squid/squid.conf
-sed -i '/request_header_access Pragma allow all/a request_header_access Accept allow all' /etc/squid/squid.conf 
-sed -i '/request_header_access Accept allow all/a request_header_access Accept-Charset allow all' /etc/squid/squid.conf 
-sed -i '/request_header_access Accept-Charset allow all/a request_header_access Accept-Encoding allow all' /etc/squid/squid.conf 
-sed -i '/request_header_access Accept-Encoding allow all/a request_header_access Accept-Language allow all' /etc/squid/squid.conf 
-sed -i '/request_header_access Accept-Language allow all' /a request_header_access Content-Language allow all' /etc/squid/squid.conf 
-sed -i '/request_header_access Content-Language allow all/a request_header_access Mime-Version allow all' /etc/squid/squid.conf 
-sed -i '/request_header_access Mime-Version allow all/a request_header_access Retry-After allow all' /etc/squid/squid.conf 
-sed -i '/request_header_access Retry-After allow all/a request_header_access Title allow all' /etc/squid/squid.conf 
-sed -i '/request_header_access Title allow all/a request_header_access Connection allow all' /etc/squid/squid.conf 
-sed -i '/request_header_access Connection allow all/a request_header_access Proxy-Connection allow all' /etc/squid/squid.conf 
-sed -i '/request_header_access Proxy-Connection allow all/a request_header_access User-Agent allow all' /etc/squid/squid.conf 
-sed -i '/request_header_access User-Agent allow all/a request_header_access Cookie allow all' /etc/squid/squid.conf 
-sed -i '/request_header_access Cookie allow all/a request_header_access All deny all' /etc/squid/squid.conf
-sed -i '/request_header_access All deny all/a dns_nameservers 8.8.8.8 8.8.4.4' /etc/squid/squid.conf
-sed -i '/dns_nameservers 8.8.8.8 8.8.4.4/a visible_hostname proxy.premium' /etc/squid/squid.conf
+yum -y install squid
+wget -O /etc/squid/squid.conf "https://github.com/kunwabu/config/raw/master/squid.conf"
+
 
 # install httpd
 yum -y install httpd
@@ -124,3 +98,6 @@ echo "Timezone : Indonesia/Madura"  | tee -a log-install.txt
 echo "============================================"  | tee -a log-install.txt
 echo "TERIMAKASIH TELAH MENGUNAKAN JASA KAMI :D"  | tee -a log-install.txt
 echo "============================================"  | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
+echo "SILAHKAN REBOOT VPS ANDA !"  | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
